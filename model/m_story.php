@@ -12,13 +12,20 @@ class Story
 		$result = $con->query($sql);
 		return $result;
 	}
+    public static function ubahstory($idstory,$nama,$jenis,$kisah,$foto)
+    {
+        global $con;
+        $sql = "UPDATE story SET nama='$nama',jenis='$jenis',gambar='$foto',kisah='$kisah' WHERE idstory=".$idstory;
+        $result = $con->query($sql);
+        return $result;
+    }
 
 	public static function lihatstory()
 	{
 		
 		global $con;
     	$list=[];
-    	$sql = " SELECT * FROM story" ;
+    	$sql = " SELECT * FROM story" ; 
     	$result =$con->query($sql);
 
     	if ($result-> num_rows > 0 ) {

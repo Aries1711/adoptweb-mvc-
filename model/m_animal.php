@@ -15,7 +15,7 @@ class Animal
 
     public static function ubahadopsi($idhewan,$jenis,$umur,$image,$deskripsi)
     {
-        
+
         global $con;
         $sql = "UPDATE animal SET jenis='$jenis',umur='$umur',image='$image',deskripsi='$deskripsi' WHERE idhewan=".$idhewan;
         $result = $con->query($sql);
@@ -94,6 +94,7 @@ class Animal
                 $list[]=array(
                     'idadopsi' =>$row['id_adopsi'] ,
                     'idmember' =>$row['id_member'],
+                    'idhewan' =>$row['idhewan'],
                     'tanggal' =>$row['tanggal'],
                     'tanggalkirim' =>$row['tanggalkirim'],
                     'status' =>$row['status verifikasi'],
@@ -123,6 +124,21 @@ class Animal
         $sql = "call makeadopsi('$idmember','$idhewan','$tanggal1','$tanggalkirim','$status','$alasan','$alamat')";
         $result = $con->query($sql);
         return $result;  
+    }
+
+    public static function terima($idadopsi,$verif)
+    {
+        global $con;
+        $sql = "UPDATE adopsi SET `status verifikasi`='$verif' WHERE id_adopsi=".$idadopsi;
+        $result = $con->query($sql);
+        return $result;
+    }
+    public static function tolak($idadopsi,$verif1)
+    {
+        global $con;
+        $sql = "UPDATE adopsi SET `status verifikasi`='$verif1' WHERE id_adopsi=".$idadopsi;
+        $result = $con->query($sql);
+        return $result;
     }
 
 }

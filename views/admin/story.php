@@ -53,8 +53,46 @@
             <td><?php echo $item['kisah'] ?></td>
             <td>
                   <button onclick=""><span class="glyphicon glyphicon-trash"></span></button>
-                <button onclick=""><span class="glyphicon glyphicon-edit"></span></button>
+                <button role="button" data-toggle="modal" data-target="#update-<?php echo $item['idstory'] ?>"><span class="glyphicon glyphicon-edit"></span></button>
           </td>
+
+<!-- modal -->
+      <div id="update-<?php echo $item['idstory'] ?>" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Ubah Data Hewan</h4>
+                  </div>
+                  <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="controller" value="story">
+                <input type="hidden" name="action" value="ubahkisah">
+                  <div class="modal-body">
+                    <div class="form-group">
+                       <input type="hidden" name="idstory" value="<?php echo $item['idstory']; ?>">
+                    <label for="pwd">Nama:</label>
+                      <input type="text" class="form-control" name="nama" value="<?php echo $item['nama'] ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Jenis:</label>
+                      <input type="text" class="form-control" name="jenis" value="<?php echo $item['jenis'] ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Kisah:</label>
+                      <input type="text" class="form-control" name="kisah" value="<?php echo $item['kisah'] ?>">
+                  </div>
+                  <div>
+                  <label for="exampleFormControlFile1">Gambar Hewan</label>
+                  <input name="foto_hewan" type="file" class="form-control" aria-describedby="basic-addon1" required>
+                   <input class="btn btn-warning" type="submit" value="Masukkan" name="upload">
+                    </div>
+                </form>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                  </div>  
+                </div>
+              </div>
+            </div>
           </tr>
           <?php }  ?>
           </tbody>
@@ -63,7 +101,6 @@
         <a href="#tambah" class="btn btn-success" role="button" data-toggle="modal" style="margin-left: 10px; margin-bottom: 10px;">Tambah</a>
       </div>
       </div>
-
 <!-- modal -->
 <div id="tambah" class="modal fade" role="dialog">
       <div class="modal-dialog">

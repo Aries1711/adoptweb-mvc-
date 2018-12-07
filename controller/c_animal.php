@@ -36,6 +36,16 @@ class AnimalController
             header('location:index.php?controller=login&action=login');
         } 
 	}
+	public function terima()
+    {
+        $list = Animal::terima($_POST['idadopsi'],$_POST['verif']);
+        header("location: index.php?controller=home&action=adminverifikasi");
+    }
+    public function tolak()
+    {
+        $list = Animal::tolak($_POST['idadopsi'],$_POST['verif1']);
+        header("location: index.php?controller=home&action=adminverifikasi");
+    }
 
 	public function make()
 	{

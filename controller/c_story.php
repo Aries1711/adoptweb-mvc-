@@ -15,6 +15,19 @@ class StoryController
             header('location:index.php?controller=home&action=home');
         }
 	}
+
+    public function ubahkisah()
+    {
+        
+            $foto = $_FILES['foto_hewan']['name'];
+            $tmp = $_FILES['foto_hewan']['tmp_name'];
+            $path = "images/".$foto;
+            if (move_uploaded_file($tmp, $path)) {
+            $list = Story::ubahstory($_POST['idstory'], $_POST['nama'], $_POST['jenis'],$_POST['kisah'],$foto);
+            header("location: index.php?controller=home&action=adminstory");
+            }
+    }
+
 	public function detailreview()
 	{
 		$story=Story::lihatreview($_GET['idstory']);
