@@ -17,7 +17,7 @@ class AnimalController
 	}
 	public function ubahadopsi()
 	{
-		if (isset($_SESSION['user'])) {
+		
 			$foto = $_FILES['foto_hewan']['name'];
 			$tmp = $_FILES['foto_hewan']['tmp_name'];
 			$path = "images/".$foto;
@@ -25,9 +25,6 @@ class AnimalController
 			$list = Animal::ubahadopsi($_POST['idhewan'], $_POST['jenis'], $_POST['umur'],$_POST['deskripsi'],$foto);
             header("location: index.php?controller=animal&action=homeAdmin");
         	}
-        } else {
-            header('location:index.php?controller=login&action=login');
-        } 
 	}
  
 	public function adopsihewan() 

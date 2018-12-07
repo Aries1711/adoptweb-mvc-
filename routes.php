@@ -22,7 +22,7 @@ function call($controller, $action)
             break;
         case 'animal':
             $controller = new AnimalController(); 
-            require_once ('model/m_animal.php');
+            require_once ('model/m_animal.php'); 
             break;
         case 'story':
             $controller = new StoryController();

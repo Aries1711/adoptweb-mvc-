@@ -44,40 +44,39 @@ $page = isset($_GET['p'])?$_GET['p']:'';
                 <button role="button" data-toggle="modal" data-target="#update-<?php echo $row['idhewan'] ?>"><span class="glyphicon glyphicon-edit"></span></button>
 
                             <!-- Modal Content Update-->
-              <div id="" class="modal fade" role="dialog">
-                <input type="hidden" name="">
-                <input type="hidden" name="">
+              <div id="update-<?php echo $row['idhewan'] ?>" class="modal fade" role="dialog">
                   <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title">Ubah Data Hewan</h4>
                   </div>
                   <form method="post" enctype="multipart/form-data">
-                    <input type="hidden" id="<?php echo $row['idhewan'] ?>">
+                <input type="hidden" name="controller" value="animal">
+                <input type="hidden" name="action" value="ubahadopsi">
                   <div class="modal-body">
                     <div class="form-group">
+                       <input type="hidden" name="idhewan" value="<?php echo $row['idhewan']; ?>">
                     <label for="pwd">Jenis Hewan:</label>
-                      <input type="text" class="form-control" id="j-<?php echo $row['idhewan'] ?>" value="<?php echo $row['jenis'] ?>">
+                      <input type="text" class="form-control" name="jenis" value="<?php echo $row['jenis'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="pwd">Umur:</label>
-                      <input type="text" class="form-control" id="u-<?php echo $row['idhewan'] ?>" value="<?php echo $row['umur'] ?>">
+                      <input type="text" class="form-control" name="umur" value="<?php echo $row['umur'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="pwd">Deskripsi:</label>
-                      <input type="text" class="form-control" id="d-<?php echo $row['idhewan'] ?>" value="<?php echo $row['deskripsi'] ?>">
+                      <input type="text" class="form-control" name="deskripsi" value="<?php echo $row['deskripsi'] ?>">
                   </div>
-                  </div>
+                  <div>
                   <label for="exampleFormControlFile1">Gambar Hewan</label>
                   <input name="foto_hewan" type="file" class="form-control" aria-describedby="basic-addon1" required>
                    <input class="btn btn-warning" type="submit" value="Masukkan" name="upload">
                     </div>
-                  </div>
-                    
                 </form>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                   </div>
+                  </div>  
                 </div>
               </div>
             </div>

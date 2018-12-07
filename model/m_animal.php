@@ -13,13 +13,23 @@ class Animal
         return $result;
     }
 
+    public static function ubahadopsi($idhewan,$jenis,$umur,$image,$deskripsi)
+    {
+        
+        global $con;
+        $sql = "UPDATE animal SET jenis='$jenis',umur='$umur',image='$image',deskripsi='$deskripsi' WHERE idhewan=".$idhewan;
+        $result = $con->query($sql);
+        return $result;
+
+    }
+
     public static function lihatAnimal()
     {
     	global $con;
     	$list=[]; 
         $sql = " SELECT * FROM animal " ;  
         $result =$con->query($sql);
-  
+   
         if ($result-> num_rows > 0 ) {
             while ( $row = $result-> fetch_assoc()) {
                 $list[]=array(
