@@ -25,54 +25,40 @@
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
-</nav>
+</nav> 
   
   <!-- slide -->
 <!-- table content-->
   <img src="resources/image/hehe.png" style=" width: 100%;" >
-  <div class="paragrap">
-      <h2>Persetujuan Verifikasi.</h2>
+  <div class="dataad" style="top: 70px;">
+      <h2 style="color: black;">Data Permintaan Verifikasi</h2>
       <hr>
-      <div class="dataad">
         <table>
-          <tbody>
+          <thead>
           <tr>
-            <th>Jenis Hewan</th>
-            <th>Umur</th>
-            <th>Gambar</th>
-            <th>Deskripsi</th>
-            <th>Status verifikasi</th>
+            <th>ID member</th>
+            <th>ID Hewan</th>
+            <th>Tanggal submit</th>
+            <th>Tanggal kirim</th>
+            <th>Status Status</th>
             <th>Aksi</th>
           </tr>  
+          </thead>
+          <tbody>
+            <?php foreach ($adopsi as $data) {
+            
+            ?>
           <tr>
-            <td>Kucing</td>
-            <td>12 Bulan</td>
-            <td>Img;1kucing.png</td>
-            <td>kucing ini gemukkkkk</td>
-            <td>Nonverif</td>
+              <td><?php echo $data['idadopsi'] ?></td>
+              <td><?php echo $data['idmember'] ?></td>
+              <td><?php echo $data['tanggal'] ?></td>
+              <td><?php echo $data['tanggalkirim'] ?></td>
+              <td><?php echo $data['status'] ?></td>
             <td>
-                  <button type="button" style="border-radius: 10px;" >Verifikasi</button>
+                  <button type="button" style="border-radius: 10px;" ><span class="glyphicon glyphicon-ok-circle"></span></button>
+                  <button type="button" style="border-radius: 10px;" ><span class="glyphicon glyphicon-remove-circle"></span></button>
           </td>
-          </tr>
-          <tr>
-            <td>Anjing</td>
-            <td>14 bulan</td>
-            <td>Img;1anjing.png</td>
-            <td>Anjing ini berbentuk kotak</td>
-            <td>Nonverif</td>
-            <td>
-                  <button type="button" style="border-radius: 10px;" >Verifikasi</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Badak</td>
-            <td>14 bulan</td>
-            <td>Img;1Badak.png</td>
-            <td>Badak ini berbentuk Anjing</td>
-            <td>Nonverif</td>
-            <td>
-                  <button type="button" style="border-radius: 10px;" >Verifikasi</button>
-            </td>
+          <?php }  ?>
           </tr>
           </tbody>
         </table>

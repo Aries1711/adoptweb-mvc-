@@ -23,7 +23,7 @@
       <li class="active"><a href="?controller=home&action=contact">Contact Us</a></li> 
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#" role="button" ><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['nama']; ?></a></li>
+      <li><a href="?controller=home&action=profile&idmember=<?php echo $_SESSION['id']?>" role="button" ><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['nama']; ?></a></li>
       <li><a href="logout.php" role="button" ><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
     </ul>
   </div>

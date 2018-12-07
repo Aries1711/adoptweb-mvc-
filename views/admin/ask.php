@@ -28,10 +28,8 @@
 </nav>
 <!-- Modal content-->
   <img src="resources/image/hehe.png" style=" width: 100%;" >
-  <div class="paragrap">
-      <h2>Data Pertanyaan.</h2>
-      <hr>
-      <div class="dataad">
+      <div class="dataad" style="top: 70px;">
+      <h2 style="color: black;">Pertanyaan User</h2>
         <table>
           <tbody>
           <tr>
@@ -46,11 +44,11 @@
             ?>
           <tr>
             <td><?php echo $data['idask'] ?></td>
-            <td><?php echo $data['nama'] ?></td>
+            <td><?php echo $data['nama'] ?></td> 
             <td><?php echo $data['email'] ?></td>
             <td><?php echo $data['pertanyaan'] ?></td>
             <td>
-                  <button type="button" style="border-radius: 10px;" >baca</button>
+                  <button type="button" style="border-radius: 10px;" ><span class="glyphicon glyphicon-envelope"></span></button>
           </td>
           </tr>
           <?php }  ?>

@@ -11,6 +11,9 @@ function call($controller, $action)
             require_once ('model/m_home.php');
             require_once('model/m_ask.php');
             require_once('model/m_story.php');
+            require_once ('model/m_animal.php');
+            require_once ('model/m_user.php');
+
             break;
         case 'login':
             $controller = new LoginController();

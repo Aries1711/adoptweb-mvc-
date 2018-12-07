@@ -25,13 +25,11 @@
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
-</nav>
+</nav> 
 <!-- Tabel content-->
   <img src="resources/image/hehe.png" style=" width: 100%;" >
-  <div class="paragrap">
-      <h2>Data Kisah.</h2>
-      <hr>
-      <div class="dataad">
+  <div class="dataad" style="top: 70px;">
+      <h2 style="color: black;">Tulis Kisah.</h2>
         <table>
           <thead>
           <tr>
@@ -54,8 +52,8 @@
             <td><?php echo $item['gambar'] ?></td>
             <td><?php echo $item['kisah'] ?></td>
             <td>
-                  <button type="button" style="border-radius: 10px;" >ubah</button>
-                  <button type="button" style="border-radius: 10px;" >hapus</button>
+                  <button onclick=""><span class="glyphicon glyphicon-trash"></span></button>
+                <button onclick=""><span class="glyphicon glyphicon-edit"></span></button>
           </td>
           </tr>
           <?php }  ?>
@@ -74,7 +72,7 @@
         <h4 class="modal-title">Data Kisah Baru</h4>
       </div>
       <form method="post" enctype="multipart/form-data">
-        <input type="hidden" name="controller" value="home">
+        <input type="hidden" name="controller" value="story">
         <input type="hidden" name="action" value="kisah">
       <div class="modal-body">
         <div class="form-group">

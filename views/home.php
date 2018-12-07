@@ -89,7 +89,7 @@
   </div>
 </div>
   <!-- slide -->
-  <img src="resources/image/haha.png" style=" width: 100%;" >
+  <img src="resources/image/guguk.png" style=" width: 100%;" >
     <div class="paragrap">
       <h2>Bagaimana kita bisa menelantarkan hewan yang mau setia kepada kita.</h2>
       <h2>Mereka bukan aksesoris atau mainan</h2>
@@ -99,7 +99,7 @@
       </div>
   </div>
   <div class="langkah">
-    <h2>Langkah-langkah adopsi</h2>
+    <h2>Copyright@ArisqiSetyawan</h2>
 
   </div>
   <script type="text/javascript" src="resources/assets/js/jquery-3.3.1.min.js"></script>

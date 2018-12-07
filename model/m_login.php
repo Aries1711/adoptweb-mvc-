@@ -14,6 +14,7 @@ class Login
         $result = mysqli_query($con, $sql);
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
+            $_SESSION['id'] = $row['id'];
             $_SESSION['nama'] = $row['nama'];
             return $row['level'];
         } else {

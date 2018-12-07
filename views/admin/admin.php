@@ -8,11 +8,11 @@
   <link rel="stylesheet" type="text/css" href="resources/assets/css/style.css">
   <title>Adopsi Hewan</title>
 </head>
-<body> 
+<body onload="LihatData()"> 
   <nav class="navbar navbar-inverse"> 
   <div class="container-fluid"> 
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">@Admin</a>
+    <div class="navbar-header"> 
+      <a class="navbar-brand" href="#">@Admin</a> 
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="?controller=animal&action=homeAdmin">Data Adopsi</a></li>
@@ -27,13 +27,12 @@
   </div>
 </nav>
   <!-- slide -->
-  <img src="resources/image/haha.png" style=" width: 100%;" >
-    <div class="paragrap">
-      <h2>Data Adopsi.</h2>
+  <img src="resources/image/hehe.png" style=" width: 100%;">
+      <div class="dataad" style="top: 70px;">
+      <h2 style="color: black;">Data Adopsi.</h2>
       <hr>
-      <div class="dataad">
         <table>
-          <tbody>
+          <thead>
           <tr>
             <th>Id Hewan</th>
             <th>Jenis Hewan</th>
@@ -42,28 +41,16 @@
             <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>  
-            <?php foreach ($lihat as $data) {
+          </thead>
+          <tbody>
             
-            ?>
-          <tr>
-            <td><?php echo $data['idhewan'] ?></td>
-            <td><?php echo $data['jenis'] ?></td>
-            <td><?php echo $data['umur'] ?></td>
-            <td><?php echo $data['image'] ?></td>
-            <td><?php echo $data['deskripsi'] ?></td>
-            <td>
-                  <button type="button" style="border-radius: 10px;" >Ubah</button>
-                  <button type="button" style="border-radius: 10px;" >Hapus</button>
-          </td>
-          </tr>
-          <?php }  ?>
           </tbody>
         </table>
       <div class="tombol">
         <a href="#tambah" class="btn btn-success" role="button" data-toggle="modal" style="margin-left: 10px; margin-bottom: 10px;">Tambah</a>
       </div>
       </div>
-<!-- modal -->
+<!-- Modal Tambah Data-->
 <div id="tambah" class="modal fade" role="dialog">
       <div class="modal-dialog">
     <div class="modal-content">
@@ -74,9 +61,15 @@
         <input type="hidden" name="controller" value="animal">
         <input type="hidden" name="action" value="baru">
       <div class="modal-body">
-        <div class="form-group">
+        <div class="form-group"> 
         <label for="pwd">Jenis Hewan:</label>
-          <input type="text" class="form-control" id="pwd" name="jenis">
+          
+          <select name="jenis" class="form-control">
+            <option disabled selected>Pilih Jenis Hewan</option>
+            <option value="Anjing">Anjing</option>
+            <option value="Kucing">Kucing</option>
+            <option value="Marmut">Marmut</option>
+          </select>
       </div>
         <div class="form-group">
         <label for="pwd">Umur:</label>
@@ -101,6 +94,58 @@
 
   <script type="text/javascript" src="resources/assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="resources/assets/js/bootstrap.js"></script>
+
+  <script >
+
+    function LihatData(){
+      $.ajax({
+        type: "GET",
+        url: "model/m_ajaxadmin.php",
+        success: function(data){
+          $('tbody').html(data)
+        }
+      })
+
+    }
+
+    function Hapus(str){
+      var id =str;
+      $.ajax({
+        type: "get",
+        url : "model/m_ajaxadmin.php?p=del",
+        data :"id="+id,
+        success : function(data){
+          LihatData();
+        }
+      })
+      ;
+    }
+
+    function Update(str){
+      var id=str;
+      var jenis=$('#j-'+str).val();
+      var umur=$('#u-'+str).val();
+      var desk=$('#d-'+str).val();
+
+      $.ajax({
+        type:'POST',
+        url : "model/m_ajaxadmin.php?p=edit",
+        data: "j=" +jenis+ "&u=" +umur+ "&d=" +desk+ "id="+id,
+        success: function(data){
+          LihatData();
+          console.log("complete");
+
+        }
+
+      });
+
+    } 
+
+
+
+    
+
+  </script>
   
 </body>
 </html>
