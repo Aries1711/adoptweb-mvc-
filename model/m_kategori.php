@@ -3,7 +3,7 @@
 require_once('../init.php');
 		$hewan=$_POST['request'];
 		if ($hewan=='Semua') {
-		$sql = (" SELECT * FROM animal") ; 
+		$sql = (" SELECT * FROM animal where teradopsi =0") ; 
         $result =$con->query($sql);
         if ($result-> num_rows > 0 ) {
                 echo "<table>";
@@ -23,7 +23,7 @@ require_once('../init.php');
             echo "</table>";
         }
 		}else{	
-        $sql = (" SELECT * FROM animal where jenis='$hewan'") ; 
+        $sql = (" SELECT * FROM animal where jenis='$hewan' and teradopsi=0") ; 
         $result =$con->query($sql);
         if ($result-> num_rows > 0 ) {
                 echo "<table>";

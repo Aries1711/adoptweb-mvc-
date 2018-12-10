@@ -55,16 +55,41 @@
     </div>
       </div>
     </div>
-    <div class="col-md-8" style="background: white; border-radius: 4px; background: rgba(255,255,255,.1); color: white;"> Detail
+    <div class="col-md-8" style="background: white; border-radius: 4px; background: rgba(255,255,255,.1); color: white;"> Detail User
       <h3>No. Telepon</h3>
       <li style="color: white; font-size: 20px;"><?php if ($data['notelp'] == ''){ echo "Nomer telepone masih kosong";}
       echo $data['notelp']; {
         # code...
       } ?></li>
     </div>
+      <?php } ?>
+
+      <div class="col-md-8" style="background: white; border-radius: 4px; background: rgba(255,255,255,.5); color: white;">
+      <h3>Log Pengajuan</h3>
+      <hr>
+      <table>
+        <thead>
+          <th>Id Hewan</th>
+          <th>Tanggal Submit</th>
+          <th>Tanggal Kirim</th>
+          <th>Status</th>
+        </thead>
+        <tbody>
+    <?php foreach ($adopsi as $item) {
+              ?>
+          <tr>
+            <td><?php echo $item['idhewan'] ?></td>
+            <td><?php echo $item['tanggal'] ?></td>
+            <td><?php echo $item['tanggalkirim'] ?></td>
+            <td><?php echo $item['status verifikasi'] ?></td>
+          </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+      </div>
+    
   </div>
 </div>
-      <?php } ?>
 
       <div class="tombol">
         

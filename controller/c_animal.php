@@ -38,7 +38,7 @@ class AnimalController
 	}
 	public function terima()
     {
-        $list = Animal::terima($_POST['idadopsi'],$_POST['verif']);
+        $list = Animal::terima($_POST['idadopsi'],$_POST['verif'], $_POST['idhewan']);
         header("location: index.php?controller=home&action=adminverifikasi");
     }
     public function tolak()

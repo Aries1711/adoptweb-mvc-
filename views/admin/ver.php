@@ -55,7 +55,13 @@
               <td><?php echo $data['tanggalkirim'] ?></td>
               <td><?php echo $data['status'] ?></td>
             <td>
+              <?php
+              if ($data['status'] == 'Nonverifikasi') {
+                ?>
                   <button role="button" data-toggle="modal" data-target="#verif-<?php echo $data['idadopsi'] ?>"><span class="glyphicon glyphicon-ok-circle"></span></button>
+              <?php
+              }
+              ?>
           </td>
 
           <!--modal -->
@@ -70,6 +76,7 @@
                   <form method="post">
                        <input type="hidden" name="idadopsi" value="<?php echo $data['idadopsi']; ?>">
                        <input type="hidden" name="verif" value="Terverifikasi">
+                       <input type="hidden" name="idhewan" value="<?php echo $data['idhewan']; ?>">
                 <input type="hidden" name="controller" value="animal">
                 <input type="hidden" name="action" value="terima">
                       <input class="btn btn-warning" type="submit" value="Yakin" name="upload">

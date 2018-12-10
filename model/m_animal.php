@@ -27,7 +27,7 @@ class Animal
     {
     	global $con;
     	$list=[]; 
-        $sql = " SELECT * FROM animal " ;  
+        $sql = " SELECT * FROM animal where teradopsi=0" ;  
         $result =$con->query($sql);
    
         if ($result-> num_rows > 0 ) {
@@ -121,16 +121,18 @@ class Animal
       global $con;
       $tanggal1 =date('Y-m-d');
       $status ='Nonverifikasi';
-        $sql = "call makeadopsi('$idmember','$idhewan','$tanggal1','$tanggalkirim','$status','$alasan','$alamat')";
+    $sql = "call makeadopsi('$idmember','$idhewan','$tanggal1','$tanggalkirim','$status','$alasan','$alamat')";
         $result = $con->query($sql);
         return $result;  
     }
 
-    public static function terima($idadopsi,$verif)
+    public static function terima($idadopsi,$verif,$idhewan)
     {
         global $con;
         $sql = "UPDATE adopsi SET `status verifikasi`='$verif' WHERE id_adopsi=".$idadopsi;
         $result = $con->query($sql);
+        $sql1 = "UPDATE animal SET `teradopsi`=1 WHERE idhewan=".$idhewan;
+        $result = $con->query($sql1);
         return $result;
     }
     public static function tolak($idadopsi,$verif1)

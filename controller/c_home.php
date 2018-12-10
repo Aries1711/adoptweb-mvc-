@@ -5,7 +5,11 @@ class HomeController
 {
     public function home()
     { 
-        require_once('views/home.php');
+        if (isset($_SESSION['user'])) {
+            require_once('views/member/home.php');
+        } else {
+            require_once('views/home.php');
+        }
     }  
 
     public function adminverifikasi()
@@ -50,6 +54,7 @@ class HomeController
     {
         if (isset($_SESSION['user'])) {
             $profil=User::lihatuser($_GET['idmember']);
+            $adopsi=User::lihatadopsi($_GET['idmember']);
             require_once('views/member/profile.php');
         } else {
             header('location:index.php?controller=home&action=home');
