@@ -15,7 +15,7 @@ class Animal
 
     public static function ubahadopsi($idhewan,$jenis,$umur,$image,$deskripsi)
     {
-
+ 
         global $con;
         $sql = "UPDATE animal SET jenis='$jenis',umur='$umur',image='$image',deskripsi='$deskripsi' WHERE idhewan=".$idhewan;
         $result = $con->query($sql);
@@ -86,14 +86,14 @@ class Animal
     {
         global $con;
         $list=[];
-        $sql = ("SELECT * FROM adopsi") ; 
+        $sql = ("SELECT * FROM adopsi INNER JOIN users ON adopsi.id_member = users.id;  ") ; 
         $result =$con->query($sql);
 
         if ($result-> num_rows > 0 ) {
             while ( $row = $result-> fetch_assoc()) {
                 $list[]=array(
                     'idadopsi' =>$row['id_adopsi'] ,
-                    'idmember' =>$row['id_member'],
+                    'nama' =>$row['nama'],
                     'idhewan' =>$row['idhewan'],
                     'tanggal' =>$row['tanggal'],
                     'tanggalkirim' =>$row['tanggalkirim'],
@@ -123,8 +123,8 @@ class Animal
       $status ='Nonverifikasi';
     $sql = "call makeadopsi('$idmember','$idhewan','$tanggal1','$tanggalkirim','$status','$alasan','$alamat')";
         $result = $con->query($sql);
-        return $result;  
-    }
+        return $result;   
+    } 
 
     public static function terima($idadopsi,$verif,$idhewan)
     {

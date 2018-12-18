@@ -20,7 +20,7 @@
       <li class="active"><a href="?controller=home&action=adminstory">Data Kisah</a></li> 
       <li><a href="?controller=home&action=adminask">Data Pertanyaan</a></li>  
     </ul>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right"> 
       <li><a><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['nama']; ?></a></li>
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
@@ -49,7 +49,7 @@
             <td><?php echo $item['idstory'] ?></td>
             <td><?php echo $item['nama'] ?></td>
             <td><?php echo $item['jenis'] ?></td>
-            <td><?php echo $item['gambar'] ?></td>
+            <td><img src="images/<?php echo $item['gambar'] ?>" style="width: 50px; height: 50px; border-radius: 10px;"></td>
             <td><?php echo $item['kisah'] ?></td>
             <td>
                   <button onclick=""><span class="glyphicon glyphicon-trash"></span></button>

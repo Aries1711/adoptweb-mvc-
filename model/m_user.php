@@ -19,7 +19,7 @@ class User
                     'level' =>$row['level'] ,
                     'nama' =>$row['nama'],
                     'notelp' =>$row['notelp'],
-                    'username' =>$row['username']
+                    'username' =>$row['username'] 
 
                      );
             }
@@ -40,6 +40,7 @@ class User
         if ($result-> num_rows > 0 ) {
             while ( $row = $result-> fetch_assoc()) {
                 $list[]=array(
+                    'idadopsi'=>$row['id_adopsi'],
                     'idhewan' =>$row['idhewan'] ,
                     'tanggal' =>$row['tanggal'] ,
                     'tanggalkirim' =>$row['tanggalkirim'],
@@ -54,6 +55,19 @@ class User
         }else{
             return null;
         }
+    }
+
+    public static function hapusadopsi($idadopsi,$idhewan)
+    {
+        global $con;
+        $sql = ("DELETE FROM `adopsi` WHERE id_adopsi=".$idadopsi);
+        echo $idadopsi;
+        echo $idhewan;
+        $result = $con->query($sql);
+        $sql1 = ("UPDATE `animal` SET `teradopsi`=0 WHERE idhewan=".$idhewan);
+        $result1 = $con->query($sql1);
+        return $result1;
+
     }
 }
 

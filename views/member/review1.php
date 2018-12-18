@@ -16,7 +16,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="?controller=home&action=homeMember">Home</a></li>
-      <li class="active"><a href="?controller=animal&action=review">Review</a></li> 
+      <li class="active"><a href="?controller=story&action=review">Review</a></li> 
       <li><a href="?controller=animal&action=adopsi">Adopsi</a></li>
       <li><a href="?controller=home&action=about">About</a></li>
       <li><a href="?controller=home&action=contact">Contact Us</a></li> 

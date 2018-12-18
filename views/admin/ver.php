@@ -49,7 +49,7 @@
             
             ?>
           <tr>
-              <td><?php echo $data['idmember'] ?></td>
+              <td><?php echo $data['nama'] ?></td>
               <td><?php echo $data['idhewan'] ?></td>
               <td><?php echo $data['tanggal'] ?></td>
               <td><?php echo $data['tanggalkirim'] ?></td>
@@ -94,15 +94,13 @@
                   </div>  
                 </div>
               </div>
+          </div>
+        </div>
           </tr>
           <?php }  ?>
           </tbody>
         </table>
       
-      </div>
-          </tr>
-          </tbody>
-        </table>
         <hr>
       </div>
   <script type="text/javascript" src="resources/assets/js/jquery-3.3.1.min.js"></script>
