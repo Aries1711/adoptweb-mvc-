@@ -6,7 +6,7 @@
 class StoryController
 { 
 	
-	public function review()
+	public function review() 
 	{
 		$story=Story::lihatstory();
 		if (isset($_SESSION['user'])) {

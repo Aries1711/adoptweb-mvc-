@@ -106,8 +106,31 @@
   </div>
 </form>
 
-  <?php } ?>   
+  <?php } ?>    
   
-  <script type="text/javascript" src="asset/js/bootstrap.js"></script>
+  <script type="text/javascript" src="resources/assets/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="resources/assets/js/bootstrap.js"></script>
+  <script>
+
+    jQuery(document).ready(function(){
+      $('input[name="submit"]').on("click", function (event) {
+        event.preventDefault();
+
+        var tanggalkirim = new Date($('input[name="tanggalkirim"]').val());
+        var today = new Date();
+
+        if (tanggalkirim.getTime() < today.getTime()) {
+          alert("Tanggal kirim mohon melebihi tanggal sekarang");
+          stop();
+        }
+        else{
+          $('input[name="submit"]').off("click").trigger("click");
+        }
+
+      });
+    });
+    
+
+  </script>
 </body>
 </html>

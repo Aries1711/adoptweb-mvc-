@@ -10,8 +10,9 @@ if ($page == 'del') {
   $id = $_GET['id'];
   $sql = ("DELETE FROM animal WHERE idhewan =".$id);
   $execute =$con->query($sql);
-
-}else{
+ 
+}else{ 
+  
  $list=[]; 
  $sql = " SELECT * FROM animal " ;  
  $result =$con->query($sql);
@@ -20,7 +21,6 @@ if ($page == 'del') {
   while ( $row = $result-> fetch_assoc()) {
    ?>
    <tr>
-
      <td><?php echo $row['idhewan'] ?></td>
      <td><?php echo $row['jenis'] ?></td>
      <td><?php echo $row['umur'] ?></td>

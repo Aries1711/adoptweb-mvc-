@@ -131,7 +131,7 @@ class Animal
         global $con;
         $sql = "UPDATE adopsi SET `status verifikasi`='$verif' WHERE id_adopsi=".$idadopsi;
         $result = $con->query($sql);
-        $sql1 = "UPDATE animal SET `teradopsi`=1 WHERE idhewan=".$idhewan;
+        $sql1 = "UPDATE animal SET `teradopsi`= 1 WHERE idhewan=".$idhewan;
         $result = $con->query($sql1);
         return $result;
     }
